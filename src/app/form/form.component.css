@@ -28,7 +28,9 @@ button {
 button:hover {
   filter: brightness(0.8);
 }
-
+.errorText {
+  color: #ff5945;
+}
 @media screen and (max-width: 400px) {
   button {
     padding: 15px;

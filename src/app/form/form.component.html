@@ -2,3 +2,4 @@
   <input type="text" id="input-box" placeholder="add your tasks" #taskInput />
   <button (click)="onAddTaskHandler()">Add</button>
 </div>
+<p class="errorText" *ngIf="error.hasError">{{ error.message }}</p>

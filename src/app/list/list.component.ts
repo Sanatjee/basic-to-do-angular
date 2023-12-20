@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Task } from '../shared/Task.model';
 import { SingleComponent } from '../single/single.component';
@@ -13,4 +13,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ListComponent {
   @Input() tasks: Task[];
+
+  @Output() changeTasksOnDelete = new EventEmitter<number>();
+  @Output() updatedTasksOnDelete = new EventEmitter<number>();
+
+  taskDeleteHandler(taskIndex: number) {
+    this.changeTasksOnDelete.emit(taskIndex);
+  }
+
+  taskCompleteHandler(taskIndex: number) {
+    this.updatedTasksOnDelete.emit(taskIndex);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../shared/Task.model';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,4 +16,17 @@ export class SingleComponent {
   faTrash = faTrash;
 
   @Input() task: Task;
+  @Input() index: number;
+
+  @Output() taskDeleted = new EventEmitter<number>();
+  @Output() taskCompleted = new EventEmitter<number>();
+
+  actionHandler(index: number, type: string) {
+    if (type === 'delete') {
+      this.taskDeleted.emit(index);
+    }
+    if (type === 'complete') {
+      this.taskCompleted.emit(index);
+    }
+  }
 }

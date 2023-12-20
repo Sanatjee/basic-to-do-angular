@@ -33,4 +33,14 @@ export class AppComponent {
   onTaskAdded(task: Task) {
     this.tasks.push(task);
   }
+
+  removeTaskByIndex(index: number) {
+    if (index > -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  updateTaskByIndex(index: number) {
+    this.tasks[index].status = !this.tasks[index].status;
+  }
 }

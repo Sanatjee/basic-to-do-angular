@@ -1,3 +1,8 @@
 <li [ngClass]="task.status ? 'checked' : ''">
-  {{ task.description }} <span><fa-icon [icon]="faTrash"></fa-icon></span>
+  <div (click)="actionHandler(index, 'complete')">
+    {{ task.description }}
+  </div>
+  <span (click)="actionHandler(index, 'delete')"
+    ><fa-icon [icon]="faTrash"></fa-icon
+  ></span>
 </li>

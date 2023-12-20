@@ -9,7 +9,11 @@
 
         <app-form (taskAdded)="onTaskAdded($event)"></app-form>
 
-        <app-list [tasks]="tasks"></app-list>
+        <app-list
+          [tasks]="tasks"
+          (changeTasksOnDelete)="removeTaskByIndex($event)"
+          (updatedTasksOnDelete)="updateTaskByIndex($event)"
+        ></app-list>
       </div>
     </div>
   </body>

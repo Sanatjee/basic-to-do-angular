@@ -1,3 +1,9 @@
 <ul id="list-container">
-  <app-single *ngFor="let taskEl of tasks" [task]="taskEl"></app-single>
+  <app-single
+    *ngFor="let taskEl of tasks; let i = index"
+    [task]="taskEl"
+    [index]="i"
+    (taskDeleted)="taskDeleteHandler($event)"
+    (taskCompleted)="taskCompleteHandler($event)"
+  ></app-single>
 </ul>
